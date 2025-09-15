@@ -4,6 +4,7 @@ import os
 
 # Installed Modules
 import pytest
+import math
 
 # Project Modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
@@ -58,13 +59,22 @@ def test_get_nth_fibonacci_one():
     assert result == 1
 
 
-# def test_get_nth_fibonacci_ten():
-#     """Test with n=10."""
-#     # Arrange
-#     n = 10
+def test_get_nth_fibonacci_ten():
+    """Test with n=10."""
+    #Arrange
+    n = 10
 
-#     # Act
-#     result = get_nth_fibonacci(n)
+    #Act
+    result = get_nth_fibonacci(n)
 
-#     # Assert
-#     assert result == 89
+    #Assert
+    assert result == 55
+def test_area_of_circle_negative_raises():
+    # r negativo debe arrojar ValueError
+    with pytest.raises(ValueError):
+        area_of_circle(-1)
+
+def test_get_nth_fibonacci_negative_raises():
+    # n negativo debe arrojar ValueError
+    with pytest.raises(ValueError):
+        get_nth_fibonacci(-3)
